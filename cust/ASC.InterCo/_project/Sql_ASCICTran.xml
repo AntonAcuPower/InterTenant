@@ -1,0 +1,31 @@
+﻿<Sql TableName="ASCICTran" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="ASCICTran">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="ICTranID" type="Int" identity="true" />
+  <col name="SourceSiteID" type="Int" />
+  <col name="SourceObject" type="NVarChar(30)" />
+  <col name="SourceType" type="NVarChar(30)" />
+  <col name="SourceRef" type="NVarChar(30)" />
+  <col name="DestinationSiteID" type="Int" />
+  <col name="DestinationObject" type="NVarChar(30)" />
+  <col name="DestinationType" type="NVarChar(30)" />
+  <col name="RemoteAcctCD" type="NVarChar(30)" />
+  <col name="DestinationRef" type="NVarChar(30)" />
+  <col name="Complete" type="Bit" default="Zero" />
+  <col name="FailedAttempts" type="Int" default="Zero" />
+  <col name="CompletedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <index name="UsrICTran_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ICTranID" />
+    <col name="SourceSiteID" />
+    <col name="DestinationSiteID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

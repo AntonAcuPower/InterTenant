@@ -1,0 +1,20 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+	  <AcumaticaSiteDir>C:\Acumatica\Sites\2021R2_1\</AcumaticaSiteDir>
+	</PropertyGroup>
+<!-- CTC TARGETS -->
+	<Target Name="DebugBuild" Condition="'$(Configuration)' == 'Debug'">
+		<Message Text="-------------------------------------------------------------" Importance="high" />
+		<Message Text="-----------------     COPYING DLLS    -----------------------" Importance="high" />
+		<Message Text="-------------------------------------------------------------" Importance="high" />
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AcumaticaSiteDir)Bin\" SkipUnchangedFiles="False" />
+	</Target>
+  <Target Name="ReleaseBuild" Condition="'$(Configuration)' == 'Release'">
+    <Message Text="-------------------------------------------------------------" Importance="high" />
+    <Message Text="-----------------   PACKING PROJECT   -----------------------" Importance="high" />
+    <Message Text="-------------------------------------------------------------" Importance="high" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Exec Command="$(AcumaticaSiteDir)Bin\PX.CommandLine.exe /method BuildProject /in $(CustDir) /out $(CustBuildDir).zip /level 1" />
+  </Target>
+<!-- CTC TARGETS END -->
+</Project>

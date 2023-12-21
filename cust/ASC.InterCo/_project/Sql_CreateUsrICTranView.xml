@@ -1,0 +1,110 @@
+﻿<Sql TableName="CreateUsrICTranView" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[/****** Object:  View [dbo].[ASCICTranView]    Script Date: 5/14/2019 1:06:17 AM ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[ASCICTranView]'))
+DROP VIEW [ASCICTranView]
+GO
+/****** Object:  View [dbo].[ASCICTranView]    Script Date: 5/14/2019 1:06:17 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[ASCICTranView]'))
+EXEC dbo.sp_executesql @statement = N'
+
+
+CREATE VIEW [ASCICTranView] as 
+
+	SELECT top 100 PERCENT COALESCE(T.CompanyID, P.CompanyID) CompanyID
+			 ,CONVERT(INT, COALESCE(T.ICTranID, (SELECT IDENT_CURRENT (''ASCICTran'')) + ROW_NUMBER() OVER(ORDER BY P.CreatedDateTime, SortOrder ASC) - 1)) ICTranID
+			 ,COALESCE(T.SourceSiteID, P.SourceSiteID) SourceSiteID
+			 ,COALESCE(T.SourceObject, P.SourceObject) SourceObject
+			 ,COALESCE(T.SourceType, P.SourceType) SourceType
+			 ,COALESCE(T.SourceRef, P.SourceRef) SourceRef
+			 ,COALESCE(T.DestinationSiteID, P.DestinationSiteID) DestinationSiteID
+			 ,COALESCE(T.DestinationObject, P.DestinationObject) DestinationObject
+			 ,COALESCE(T.DestinationType, P.DestinationType) DestinationType
+			 ,COALESCE(T.RemoteAcctCD, P.RemoteAcctCD) RemoteAcctCD
+			 ,COALESCE(T.DestinationRef, P.DestinationRef) DestinationRef
+			 ,CONVERT(BIT, COALESCE(T.Complete, P.Complete) ) Complete
+			 ,COALESCE(T.FailedAttempts, P.FailedAttempts) FailedAttempts
+			 ,COALESCE(T.CompletedDateTime, P.CompletedDateTime) CompletedDateTime
+			 ,COALESCE(T.tstamp, P.tstamp) tstamp
+			 ,COALESCE(T.CreatedByID, P.CreatedByID) CreatedByID
+			 ,COALESCE(T.CreatedByScreenID, P.CreatedByScreenID) CreatedByScreenID
+			 ,COALESCE(T.CreatedDateTime, P.CreatedDateTime) CreatedDateTime
+			 ,COALESCE(T.LastModifiedByID, P.LastModifiedByID) LastModifiedByID
+			 ,COALESCE(T.LastModifiedByScreenID, P.LastModifiedByScreenID) LastModifiedByScreenID
+			 ,COALESCE(T.LastModifiedDateTime, P.LastModifiedDateTime) LastModifiedDateTime
+	FROM 
+	(
+
+		SELECT top 100 percent OBJ.CompanyID
+			 , NULL as ICTranID
+			 , ICSortOrder SortOrder
+			 , Setting.SourceSiteID
+			 , ''POOrder'' as SourceObject
+			 , OBJ.OrderType as SourceType
+			 , OrderNbr as SourceRef
+			 , DestinationSiteID
+			 , DestinationObject
+			 , DestinationType
+			 , RemoteAcctCD
+			 , '''' as DestinationRef
+			 , 0 as Complete
+			 , 0 as FailedAttempts
+			 , ''1900-01-01 00:00:00.000'' CompletedDateTime
+			 , OBJ.tstamp
+			 , OBJ.CreatedByID
+			 , OBJ.CreatedByScreenID
+			 , OBJ.CreatedDateTime
+			 , OBJ.LastModifiedByID
+			 , OBJ.LastModifiedByScreenID
+			 , OBJ.LastModifiedDateTime
+		FROM ASCICSiteBAccountSettings Setting
+		INNER JOIN ASCICSiteBAccount Acct on Setting.CompanyID = Acct.CompanyID and Setting.BAccountID = Acct.BAccountID 
+		INNER JOIN POOrder OBJ on Setting.CompanyID = OBJ.CompanyID and Setting.BAccountID = OBJ.VendorID and OBJ.OrderType = Setting.SourceType AND Setting.SourceObject = ''POOrder'' and OBJ.Status = ''N''
+WHERE Len(COALESCE(VendorRefNbr,'''')) = 0
+		ORDER BY Setting.ICSortOrder
+		UNION ALL
+		SELECT TOP 100 PERCENT OBJ.CompanyID
+			 , NULL as ICTranID
+			 , ICSortOrder SortOrder
+			 , Setting.SourceSiteID
+			 , ''SOShipment'' as SourceObject
+			 , ''Issue'' as SourceType
+			 , ShipmentNbr as SourceRef
+			 , Setting.DestinationSiteID
+			 , DestinationObject
+			 , DestinationType
+			 , RemoteAcctCD
+			 , '''' as DestinationRef
+			 , 0 as Complete
+			 , 0 as FailedAttempts
+			 , ''1900-01-01 00:00:00.000'' CompletedDateTime
+			 , OBJ.tstamp
+			 , OBJ.CreatedByID
+			 , OBJ.CreatedByScreenID
+			 , OBJ.CreatedDateTime
+			 , OBJ.LastModifiedByID
+			 , OBJ.LastModifiedByScreenID
+			 , OBJ.LastModifiedDateTime
+		FROM ASCICSiteBAccountSettings Setting
+		INNER JOIN ASCICSiteBAccount Acct on Setting.CompanyID = Acct.CompanyID and Setting.BAccountID = Acct.BAccountID 
+		INNER JOIN SOShipment OBJ on Setting.CompanyID = OBJ.CompanyID and Setting.BAccountID = OBJ.CustomerID and Setting.SourceObject = ''SOShipment'' and OBJ.Status = ''F'' and OBJ.Confirmed = 1
+		ORDER BY Setting.ICSortOrder
+	) P
+	LEFT JOIN ASCICTran T on P.CompanyID = T.CompanyID 
+		AND P.SourceSiteID = T.SourceSiteID 
+		AND P.SourceObject = T.SourceObject
+		AND P.SourceType = T.SourceType
+		AND P.SourceRef = T.SourceRef
+		AND P.DestinationSiteID = T.DestinationSiteID 
+		AND P.DestinationObject = T.DestinationObject
+		AND P.DestinationType = T.DestinationType
+		--AND P.DestinationRef = T.DestinationRef
+	WHERE COALESCE(T.Complete, P.Complete) = 0
+	  AND COALESCE(T.FailedAttempts, P.FailedAttempts) <=3
+	ORDER BY CreatedDateTime, SortOrder
+' 
+GO]]></CDATA>
+</Sql>

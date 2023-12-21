@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Push.Foundation.Utilities</RootNamespace>
+    <AssemblyName>Push.Foundation.Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=6.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=6.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.6.0.1\lib\netstandard2.0\Autofac.Extras.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Autofac\Extensions.cs" />
+    <Compile Include="Autofac\ServiceLocator.cs" />
+    <Compile Include="CastleProxies\ErrorForensics.cs" />
+    <Compile Include="CastleProxies\ExecutionTime.cs" />
+    <Compile Include="CastleProxies\InceptorRegistrationBag.cs" />
+    <Compile Include="Execution\FaultTolerantExecutor.cs" />
+    <Compile Include="Execution\Throttler.cs" />
+    <Compile Include="General\BoolExtensions.cs" />
+    <Compile Include="General\DirectoryHelpers.cs" />
+    <Compile Include="General\EnumExtensions.cs" />
+    <Compile Include="General\ExpressionHelpers.cs" />
+    <Compile Include="General\LambdaExtensions.cs" />
+    <Compile Include="General\LinqExtensions.cs" />
+    <Compile Include="General\MethodName.cs" />
+    <Compile Include="General\ObjectIntrospection.cs" />
+    <Compile Include="General\PropertyReflection.cs" />
+    <Compile Include="General\StringExtensions.cs" />
+    <Compile Include="Helpers\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\HelperMethods.cs" />
+    <Compile Include="Helpers\LinqExtensions.cs" />
+    <Compile Include="Helpers\NameValueCollectionExtensions.cs" />
+    <Compile Include="Helpers\NumberHelpers.cs" />
+    <Compile Include="Helpers\PagingFunctions.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Helpers\TimeFormatExtensions.cs" />
+    <Compile Include="Helpers\TimeZoneParsingExtensions.cs" />
+    <Compile Include="Http\BadStatusCodeException.cs" />
+    <Compile Include="Http\Extensions.cs" />
+    <Compile Include="Http\HttpFacade.cs" />
+    <Compile Include="Http\HttpSettings.cs" />
+    <Compile Include="Http\QueryStringBuilder.cs" />
+    <Compile Include="Http\RequestEnvelope.cs" />
+    <Compile Include="Http\ResponseEnvelope.cs" />
+    <Compile Include="Http\UrlExtensions.cs" />
+    <Compile Include="Json\JsonExtensions.cs" />
+    <Compile Include="Logging\ConsoleAndDebugLogger.cs" />
+    <Compile Include="Logging\DefaultFormatter.cs" />
+    <Compile Include="Logging\ILogFormatter.cs" />
+    <Compile Include="Logging\IPushLogger.cs" />
+    <Compile Include="Logging\LoggerSingleton.cs" />
+    <Compile Include="Logging\NLogger.cs" />
+    <Compile Include="Logging\ScopedTraceFormatter.cs" />
+    <Compile Include="Logging\TypeAndMethodNameFormatter.cs" />
+    <Compile Include="Logging\UtilityExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AesCrypto.cs" />
+    <Compile Include="Security\CryptoExtensions.cs" />
+    <Compile Include="Security\HmacCryptoService.cs" />
+    <Compile Include="Security\ICryptoService.cs" />
+    <Compile Include="Security\SecureStringExtensions.cs" />
+    <Compile Include="Validation\Rule.cs" />
+    <Compile Include="Validation\Validation.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\acumatica.targets" />
+</Project>

@@ -1,0 +1,14 @@
+﻿<Sql TableName="ASCICSiteBAccount" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="ASCICSiteBAccount">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="BAccountID" type="Int" />
+  <col name="ICSiteID" type="Int" />
+  <col name="RemoteAcctCD" type="NVarChar(30)" />
+  <col name="IsActive" type="Bit" />
+  <index name="UsrICSiteBAccount_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ICSiteID" />
+    <col name="BAccountID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

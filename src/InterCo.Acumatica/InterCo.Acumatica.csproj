@@ -1,0 +1,169 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\acumatica.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InterCo.Acumatica</RootNamespace>
+    <AssemblyName>InterCo.Acumatica</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <WarningLevel>3</WarningLevel>
+    <FileVersion>20.201.0051</FileVersion>
+    <InformationalVersion>20.201.0051</InformationalVersion>
+    <CustDir>..\..\cust\ASC.Interco\</CustDir>
+    <CustBuildDir>..\..\ASC.Interco</CustBuildDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- ACUMATICA REFERENCES -->
+    <Reference Include="Autofac, Version=6.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=6.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.6.0.1\lib\netstandard2.0\Autofac.Extras.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mscorlib" />
+    <Reference Include="PX.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\PX.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PX.Objects">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\PX.Objects.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PX.Data">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\PX.Data.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PX.CS.Contracts">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\PX.CS.Contracts.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- ACUMATICA REFERENCES END -->
+    <Reference Include="NLog">
+      <HintPath>ReferenceDLLs\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASCBranchMaintICExt.cs" />
+    <Compile Include="ASCICCOPOOrderEntry_Extension.cs" />
+    <Compile Include="DAC\ASCICCOPOOrderExt.cs" />
+    <Compile Include="DAC\BAccountICExt.cs" />
+    <Compile Include="DAC\ASCICSite.cs" />
+    <Compile Include="DAC\ASCICSiteBAccount.cs" />
+    <Compile Include="DAC\ASCICSiteBAccountSettings.cs" />
+    <Compile Include="DAC\ASCICTran.cs" />
+    <Compile Include="DAC\ASCICTranSetup.cs" />
+    <Compile Include="DAC\ASCICTranView.cs" />
+    <Compile Include="Descriptor\Messages.cs" />
+    <Compile Include="Descriptor\Methods.cs" />
+    <Compile Include="ASCICSiteBAccountMaint.cs" />
+    <Compile Include="ASCICSiteBAccountSettingsMaint.cs" />
+    <Compile Include="ASCICSiteMaint.cs" />
+    <Compile Include="ASCICTranEntry.cs" />
+    <Compile Include="ASCICTranProcess.cs" />
+    <Compile Include="ASCICTranViewEntry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Interco.Middle\Interco.Middle.csproj">
+      <Project>{a0f2a351-da7c-4886-a148-4eefcc225110}</Project>
+      <Name>Interco.Middle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Push.Acumatica\Push.Acumatica.csproj">
+      <Project>{84920a12-998f-4cec-a199-8d5c6e9d7fbf}</Project>
+      <Name>Push.Acumatica</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Push.Foundation.Utilities\Push.Foundation.Utilities.csproj">
+      <Project>{0daa8a73-f914-4fae-9a06-bb192be7ca27}</Project>
+      <Name>Push.Foundation.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <CallTarget Targets="Copy;Package" />
+  </Target>
+  <Target Name="Copy" Condition="'$(Configuration)' == 'Debug'">
+    <Copy SourceFiles="$(OutputPath)InterCo.Acumatica.dll" DestinationFolder="$(AcumaticaSiteDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)InterCo.Middle.dll" DestinationFolder="$(AcumaticaSiteDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)Push.Acumatica.dll" DestinationFolder="$(AcumaticaSiteDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)Push.Foundation.Utilities.dll" DestinationFolder="$(AcumaticaSiteDir)Bin\" SkipUnchangedFiles="False" />
+  </Target>
+  <Target Name="Package" Condition="'$(Configuration)' == 'Release'">
+    <Copy SourceFiles="$(OutputPath)InterCo.Acumatica.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)InterCo.Middle.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)Push.Acumatica.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)Push.Foundation.Utilities.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)NLog.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)Autofac.Extras.DynamicProxy.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <Copy SourceFiles="$(OutputPath)Autofac.dll" DestinationFolder="$(CustDir)Bin\" SkipUnchangedFiles="False" />
+    <CallTarget Targets="ReleaseBuild" />
+  </Target>
+</Project>

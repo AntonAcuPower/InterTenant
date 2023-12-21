@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\acumatica.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Push.Acumatica</RootNamespace>
+    <AssemblyName>Push.Acumatica</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=6.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=6.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.6.0.1\lib\netstandard2.0\Autofac.Extras.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AcumaticaSiteDir)Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcumaticaAutofac.cs" />
+    <Compile Include="Api\ApiFactory.cs" />
+    <Compile Include="Api\Common\Address.cs" />
+    <Compile Include="Api\Common\Constants.cs" />
+    <Compile Include="Api\Common\ContactOverride.cs" />
+    <Compile Include="Api\Common\Values.cs" />
+    <Compile Include="Api\CustomerApi.cs" />
+    <Compile Include="Api\Customer\Contact.cs" />
+    <Compile Include="Api\Customer\Customer.cs" />
+    <Compile Include="Api\Customer\ItemClassDuplicate.cs" />
+    <Compile Include="Api\DistributionApi.cs" />
+    <Compile Include="Api\Distribution\Action.cs" />
+    <Compile Include="Api\Distribution\InventoryReceipt.cs" />
+    <Compile Include="Api\Distribution\StockItem.cs" />
+    <Compile Include="Api\Distribution\Warehouse.cs" />
+    <Compile Include="Api\Distribution\WarehouseAddress.cs" />
+    <Compile Include="Api\Distribution\WarehouseDetail.cs" />
+    <Compile Include="Api\Distribution\WarehouseLocation.cs" />
+    <Compile Include="Api\IAcumaticaApi.cs" />
+    <Compile Include="Api\PayablesApi.cs" />
+    <Compile Include="Api\Payables\Bill.cs" />
+    <Compile Include="Api\Payables\Constants.cs" />
+    <Compile Include="Api\PaymentApi.cs" />
+    <Compile Include="Api\Payment\Payment.cs" />
+    <Compile Include="Api\Payment\PaymentDocumentsToApply.cs" />
+    <Compile Include="Api\Payment\PaymentOrdersRef.cs" />
+    <Compile Include="Api\Payment\PaymentWrite.cs" />
+    <Compile Include="Api\PurchasesApi.cs" />
+    <Compile Include="Api\Purchasing\Constants.cs" />
+    <Compile Include="Api\Purchasing\POVenderRefUpdate.cs" />
+    <Compile Include="Api\Purchasing\PurchaseOrder.cs" />
+    <Compile Include="Api\Purchasing\PurchaseOrderDetail.cs" />
+    <Compile Include="Api\Purchasing\PurchaseReceipt.cs" />
+    <Compile Include="Api\Purchasing\PurchaseReceiptDetail.cs" />
+    <Compile Include="Api\Purchasing\ShippingInstructions.cs" />
+    <Compile Include="Api\ReceivablesApi.cs" />
+    <Compile Include="Api\Receivables\Constants.cs" />
+    <Compile Include="Api\Receivables\Invoice.cs" />
+    <Compile Include="Api\ReferenceApi.cs" />
+    <Compile Include="Api\SalesOrderApi.cs" />
+    <Compile Include="Api\SalesOrder\Constants.cs" />
+    <Compile Include="Api\SalesOrder\FinancialSettings.cs" />
+    <Compile Include="Api\SalesOrder\PaymentSettings.cs" />
+    <Compile Include="Api\SalesOrder\ReturnForCreditWrite.cs" />
+    <Compile Include="Api\SalesOrder\SalesInvoice.cs" />
+    <Compile Include="Api\SalesOrder\SalesInvoiceWrite.cs" />
+    <Compile Include="Api\SalesOrder\SalesOrder.cs" />
+    <Compile Include="Api\SalesOrder\SalesOrderShipment.cs" />
+    <Compile Include="Api\SalesOrder\SalesOrderTaxUpdate.cs" />
+    <Compile Include="Api\SalesOrder\SalesOrderUpdateHeader.cs" />
+    <Compile Include="Api\SalesOrder\ShippingSettings.cs" />
+    <Compile Include="Api\SalesOrder\TaxDetails.cs" />
+    <Compile Include="Api\ShipmentApi.cs" />
+    <Compile Include="Api\Shipment\Shipment.cs" />
+    <Compile Include="Api\Shipment\ShipmentConfirmation.cs" />
+    <Compile Include="Api\Shipment\ShipmentDetail.cs" />
+    <Compile Include="Api\Shipment\ShipmentExtensions.cs" />
+    <Compile Include="Api\Shipment\ShipmentPackage.cs" />
+    <Compile Include="Config\AcumaticaCredentialsConfig.cs" />
+    <Compile Include="Config\AcumaticaHttpConfig.cs" />
+    <Compile Include="Http\AcumaticaCredentials.cs" />
+    <Compile Include="Http\AcumaticaHttpContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Utility\Extensions.cs" />
+    <Compile Include="Utility\Paging.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Push.Foundation.Utilities\Push.Foundation.Utilities.csproj">
+      <Project>{0daa8a73-f914-4fae-9a06-bb192be7ca27}</Project>
+      <Name>Push.Foundation.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

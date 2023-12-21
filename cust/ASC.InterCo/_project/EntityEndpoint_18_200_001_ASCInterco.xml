@@ -1,0 +1,23 @@
+﻿<EntityEndpoint>
+    <Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="ASCInterco" version="18.200.001" systemContractVersion="3" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+        <ExtendsEndpoint name="Default" version="18.200.001" />
+        <TopLevelEntity name="PurchaseOrder" screen="PO301000">
+            <Fields>
+                <Field name="FOBPoint" type="StringValue" />
+                <Field name="OrigCustomerOrderNbr" type="StringValue" />
+                <Field name="ShipVia" type="StringValue" />
+            </Fields>
+            <Mappings>
+                <Mapping field="ShipVia">
+                    <To object="CurrentDocument: 1" field="ShipVia" />
+                </Mapping>
+                <Mapping field="FOBPoint">
+                    <To object="CurrentDocument: 1" field="FOBPoint" />
+                </Mapping>
+                <Mapping field="OrigCustomerOrderNbr">
+                    <To object="CurrentDocument: 3" field="SOOrderNbr%CustomerOrderNbr" />
+                </Mapping>
+            </Mappings>
+        </TopLevelEntity>
+    </Endpoint>
+</EntityEndpoint>

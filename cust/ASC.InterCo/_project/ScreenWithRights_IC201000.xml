@@ -1,0 +1,32 @@
+﻿<ScreenWithRights>
+    <data-set>
+        <relations format-version="3" relations-version="20190730" main-table="SiteMap">
+            <link from="RolesInCache (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="RolesInGraph (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="RolesInMember (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="Roles (Rolename, ApplicationName)" to="RolesInCache (Rolename, ApplicationName)" type="FromMaster" updateable="False" />
+            <link from="Roles (Rolename, ApplicationName)" to="RolesInGraph (Rolename, ApplicationName)" type="FromMaster" updateable="False" />
+            <link from="Roles (Rolename, ApplicationName)" to="RolesInMember (Rolename, ApplicationName)" type="FromMaster" updateable="False" />
+        </relations>
+        <layout>
+            <table name="SiteMap">
+                <table name="RolesInCache" uplink="(ScreenID) = (ScreenID)" />
+                <table name="RolesInGraph" uplink="(ScreenID) = (ScreenID)" />
+                <table name="RolesInMember" uplink="(ScreenID) = (ScreenID)" />
+            </table>
+            <table name="Roles" />
+        </layout>
+        <data>
+            <SiteMap>
+                <row Position="1" Title="InterCompany Sites" Url="~/Pages/IC/IC201000.aspx" ScreenID="IC201000" NodeID="f54c51ee-2d74-4c4e-b9d6-30bcb65aeec7" ParentID="c5268226-4d4f-4959-a438-c2dbc7834826">
+                    <RolesInGraph Rolename="Administrator" ApplicationName="/" Accessrights="4" />
+                    <RolesInGraph Rolename="AcumaticaSupport" ApplicationName="/" Accessrights="4" />
+                </row>
+            </SiteMap>
+            <Roles>
+                <row Rolename="Administrator" ApplicationName="/" Descr="System Administrator" Guest="0" />
+                <row Rolename="AcumaticaSupport" ApplicationName="/" Descr="Role for Acumatica Support. Access similar to Administrator except for User Management, Security Settings and Access Management." Guest="0" />
+            </Roles>
+        </data>
+    </data-set>
+</ScreenWithRights>

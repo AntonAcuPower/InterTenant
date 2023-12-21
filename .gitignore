@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/cust/ASC.InterCo/Bin/Push.Acumatica.dll
+/cust/ASC.InterCo/Bin/Push.Foundation.Utilities.dll
+/cust/ASC.InterCo/Bin/Interco.Middle.dll
+/cust/ASC.InterCo/Bin/InterCo.Acumatica.dll
+/src/.vs
+/src/InterCo.Acumatica/bin
+/src/InterCo.Acumatica/obj
+/src/Interco.Middle/bin
+/src/Interco.Middle/obj
+/src/Interco.Tests/.vs/Interco.ConsoleApp
+/src/Interco.Tests/obj
+/src/Push.Acumatica/bin
+/src/Push.Acumatica/obj
+/src/Push.Foundation.Utilities/bin
+/src/Push.Foundation.Utilities/obj
+/src/packages
+/ASC.Interco.zip.zip
+/ASC.Interco.zip
+
+/src/.idea/.idea.InterCo/.idea
+/src/Interco.Tests/bin/Release
+/cust/ASC.InterCo/Bin/Autofac.dll

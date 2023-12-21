@@ -1,0 +1,12 @@
+﻿<Sql TableName="ASCICTranSettings" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="ASCICTranSettings">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="ICSettingID" type="Int" identity="true" />
+  <col name="SettingName" type="NVarChar(30)" />
+  <col name="SettingValue" type="VarChar(MAX)" nullable="true" />
+  <index name="UsrICTranSettings_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ICSettingID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

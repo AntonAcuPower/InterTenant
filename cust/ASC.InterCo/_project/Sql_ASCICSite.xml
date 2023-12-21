@@ -1,0 +1,21 @@
+﻿<Sql TableName="ASCICSite" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="ASCICSite">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="ICSiteID" type="Int" identity="true" />
+  <col name="ICSiteCD" type="NVarChar(30)" />
+  <col name="Description" type="NVarChar(255)" />
+  <col name="IsActive" type="Bit" />
+  <col name="Url" type="NVarChar(256)" />
+  <col name="Login" type="NVarChar(256)" />
+  <col name="CompanyKey" type="NVarChar(128)" nullable="true" />
+  <col name="BranchCD" type="NVarChar(30)" />
+  <col name="Password" type="NVarChar(1000)" />
+  <col name="VersionSegment" type="NVarChar(256)" />
+  <col name="MaxAttempts" type="Int" />
+  <col name="TimeOut" type="Int" />
+  <index name="UsrICSite_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ICSiteID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

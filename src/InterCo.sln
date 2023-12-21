@@ -1,0 +1,73 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterCo.Acumatica", "InterCo.Acumatica\InterCo.Acumatica.csproj", "{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Push.Acumatica", "Push.Acumatica\Push.Acumatica.csproj", "{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Push.Foundation.Utilities", "Push.Foundation.Utilities\Push.Foundation.Utilities.csproj", "{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interco.Middle", "Interco.Middle\Interco.Middle.csproj", "{A0F2A351-DA7C-4886-A148-4EEFCC225110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interco.Tests", "Interco.Tests\Interco.Tests.csproj", "{E92C70F6-9712-42CC-A5E6-02ED5CEF8D0D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "InterTenant", "http://localhost/InterTenant", "{2648C34F-FAD0-4F1C-92F7-1E2C6828D6EB}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		ProjectReferences = "{9bc6d61a-5d4b-4d57-bc6b-5e3f9d04377e}|InterCo.Acumatica.dll;{A0F2A351-DA7C-4886-A148-4EEFCC225110}|Interco.Middle.dll;{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}|Push.Acumatica.dll;{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}|Push.Foundation.Utilities.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/InterTenant"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\InterTenant\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\InterTenant\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/InterTenant"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\InterTenant\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\InterTenant\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\InterTenant\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84920A12-998F-4CEC-A199-8D5C6E9D7FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAA8A73-F914-4FAE-9A06-BB192BE7CA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0F2A351-DA7C-4886-A148-4EEFCC225110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F2A351-DA7C-4886-A148-4EEFCC225110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F2A351-DA7C-4886-A148-4EEFCC225110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F2A351-DA7C-4886-A148-4EEFCC225110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E92C70F6-9712-42CC-A5E6-02ED5CEF8D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E92C70F6-9712-42CC-A5E6-02ED5CEF8D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E92C70F6-9712-42CC-A5E6-02ED5CEF8D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2648C34F-FAD0-4F1C-92F7-1E2C6828D6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2648C34F-FAD0-4F1C-92F7-1E2C6828D6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2648C34F-FAD0-4F1C-92F7-1E2C6828D6EB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2648C34F-FAD0-4F1C-92F7-1E2C6828D6EB}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1FA4A84-30E4-4EAD-A63F-5E75F41CC42A}
+	EndGlobalSection
+EndGlobal

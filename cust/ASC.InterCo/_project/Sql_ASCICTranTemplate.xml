@@ -1,0 +1,18 @@
+﻿<Sql TableName="ASCICTranTemplate" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="ASCICTranTemplate">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="ICTranSetupID" type="Int" identity="true" />
+  <col name="ICSortOrder" type="Int" />
+  <col name="IsActive" type="Bit" />
+  <col name="SourceSiteID" type="Int" />
+  <col name="SourceObject" type="NVarChar(30)" />
+  <col name="SourceType" type="NVarChar(30)" />
+  <col name="DestinationSiteID" type="Int" />
+  <col name="DestinationObject" type="NVarChar(30)" />
+  <col name="DestinationType" type="NVarChar(30)" />
+  <index name="UsrICTranTemplate_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ICTranSetupID" />
+  </index>
+</table>]]></CDATA>
+</Sql>
